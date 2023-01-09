@@ -3,6 +3,7 @@ module github.com/stafiprotocol/staking-drop
 go 1.19
 
 require (
+	github.com/JFJun/go-substrate-crypto v1.0.1
 	github.com/ethereum/go-ethereum v1.10.20
 	github.com/itering/scale.go v1.5.8
 	github.com/pkg/errors v0.9.1
@@ -16,6 +17,7 @@ require (
 require (
 	github.com/ChainSafe/go-schnorrkel v1.0.0 // indirect
 	github.com/btcsuite/btcd/btcec/v2 v2.2.0 // indirect
+	github.com/btcsuite/btcutil v1.0.2 // indirect
 	github.com/cosmos/go-bip39 v1.0.0 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
 	github.com/deckarep/golang-set v1.8.0 // indirect

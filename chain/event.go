@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/JFJun/go-substrate-crypto/ss58"
 	"github.com/pkg/errors"
 	"github.com/shopspring/decimal"
 
@@ -32,16 +33,20 @@ func (l *Listener) processBlockEvents(currentBlock uint64) error {
 			if err != nil {
 				return errors.Wrap(err, "LiquidityBondAndSwapEventData")
 			}
+			addrStr, err := ss58.Encode(eventData.AccountId[:], ss58.StafiPrefix)
+			if err != nil {
+				return fmt.Errorf("address: %s encode to ss58 err: %s", hexutil.Encode(eventData.AccountId[:]), err)
+			}
 			if eventData.DestId != 1 {
-				l.log.Info(fmt.Sprintf("user %s liquidity bond, but destId %d not support drop, will skip",
-					hexutil.Encode(eventData.AccountId[:]), eventData.DestId))
+				l.log.Warn(fmt.Sprintf("user %s liquidity bond, but destId %d not support drop, will skip",
+					addrStr, eventData.DestId))
 				continue
 			}
 
 			dropInfo, exist := l.dropInfos[eventData.Symbol]
 			if !exist {
-				l.log.Info(fmt.Sprintf("user %s liquidity bond, but symbol %s not support drop, will skip",
-					hexutil.Encode(eventData.AccountId[:]), eventData.Symbol))
+				l.log.Warn(fmt.Sprintf("user %s liquidity bond, but symbol %s not support drop, will skip",
+					addrStr, eventData.Symbol))
 				continue
 			}
 
@@ -55,8 +60,9 @@ func (l *Listener) processBlockEvents(currentBlock uint64) error {
 					}
 				} else {
 					if balance.Sign() > 0 {
-						l.log.Info(fmt.Sprintf("user %s stake amount: %s, symbol: %s, but already have: %sfis, will skip",
-							hexutil.Encode(eventData.AccountId[:]), mintAmount.String(), eventData.Symbol, balance.String()))
+						balanceDeci := decimal.NewFromBigInt(balance.Int, 0)
+						l.log.Warn(fmt.Sprintf("user %s stake amount: %s, symbol: %s, but already have: %sfis, will skip",
+							addrStr, mintAmount.String(), eventData.Symbol, balanceDeci.Div(decimal.NewFromInt(1e12)).String()))
 						continue
 					}
 				}
@@ -65,8 +71,9 @@ func (l *Listener) processBlockEvents(currentBlock uint64) error {
 				if err != nil {
 					return errors.Wrap(err, "SignAndSubmitTx")
 				} else {
+
 					l.log.Info(fmt.Sprintf("user %s liquidity bond amount: %s, denom: %s, drop amount: %sfis success",
-						hexutil.Encode(eventData.AccountId[:]), mintAmount.String(), eventData.Symbol, dropInfo.DropAmount.Div(decimal.NewFromInt(1e12)).String()))
+						addrStr, mintAmount.String(), eventData.Symbol, dropInfo.DropAmount.Div(decimal.NewFromInt(1e12)).String()))
 				}
 
 			}

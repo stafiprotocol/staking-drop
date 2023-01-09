@@ -206,8 +206,8 @@ github.com/sirupsen/logrus v1.9.0/go.mod h1:naHLuLoDiP4jHNo9R0sCBMtWGeIprob74mVs
 github.com/spaolacci/murmur3 v0.0.0-20180118202830-f09979ecbc72/go.mod h1:JwIasOWyU6f++ZhiEuf87xNszmSA2myDM2Kzu9HwQUA=
 github.com/stafiprotocol/chainbridge v1.1.0 h1:YJrZUjXYqV5Bdx4QUu9crXkE2iNOljPwNLeaiXrna2o=
 github.com/stafiprotocol/chainbridge v1.1.0/go.mod h1:xUDoTAQ1K2mSHsCRAwqflBDITg9XcEWwocyDmqsfJ4w=
-github.com/stafiprotocol/go-substrate-rpc-client v1.3.1 h1:HIPx4PYEYAiy0eWr8sR/0357TchZSWkVbKafGtXbVPE=
-github.com/stafiprotocol/go-substrate-rpc-client v1.3.1/go.mod h1:CTb3cAuVQBBIciPQ2XbVnajrK2em+nvMJ46zKqItFaU=
+github.com/stafiprotocol/go-substrate-rpc-client v1.3.2 h1:6wjJV2ZGtq9SoSJ3+HGTyeX1YjQJNvUc/2tEWaSJsBM=
+github.com/stafiprotocol/go-substrate-rpc-client v1.3.2/go.mod h1:CTb3cAuVQBBIciPQ2XbVnajrK2em+nvMJ46zKqItFaU=
 github.com/status-im/keycard-go v0.0.0-20190316090335-8537d3370df4/go.mod h1:RZLeN1LMWmRsyYjvAu+I6Dm9QmlDaIIt+Y+4Kd7Tp+Q=
 github.com/steakknife/bloomfilter v0.0.0-20180922174646-6819c0d2a570/go.mod h1:8OR4w3TdeIHIh1g6EMY5p0gVNOovcWC+1vpc7naMuAw=
 github.com/steakknife/hamming v0.0.0-20180906055917-c99c65617cd3/go.mod h1:hpGUWaI9xL8pRQCTXQgocU38Qw1g0Us7n5PxxTwTCYU=

@@ -5,12 +5,11 @@ go 1.19
 require (
 	github.com/JFJun/go-substrate-crypto v1.0.1
 	github.com/ethereum/go-ethereum v1.10.20
-	github.com/itering/scale.go v1.5.8
 	github.com/pkg/errors v0.9.1
 	github.com/shopspring/decimal v1.3.1
 	github.com/sirupsen/logrus v1.9.0
 	github.com/stafiprotocol/chainbridge v1.1.0
-	github.com/stafiprotocol/go-substrate-rpc-client v1.3.1
+	github.com/stafiprotocol/go-substrate-rpc-client v1.3.2
 	github.com/urfave/cli/v2 v2.23.7
 )
 
@@ -29,6 +28,7 @@ require (
 	github.com/gtank/merlin v0.1.1 // indirect
 	github.com/gtank/ristretto255 v0.1.2 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
+	github.com/itering/scale.go v1.5.8 // indirect
 	github.com/itering/substrate-api-rpc v0.4.15 // indirect
 	github.com/jpillora/backoff v1.0.0 // indirect
 	github.com/mimoo/StrobeGo v0.0.0-20220103164710-9a04d6ca976b // indirect

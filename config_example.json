@@ -1,9 +1,9 @@
 {
-  "endpoint": "ws://127.0.0.1:9944",
+  "endpoint": "wss://stafi-seiya.stafi.io",
   "keystorePath": "/Users/tpkeeper/gowork/stafi/staking-drop/keys",
   "typesPath": "/Users/tpkeeper/gowork/stafi/staking-drop/network/stafi.json",
   "blockstorePath": "/Users/tpkeeper/gowork/stafi/staking-drop/blockstore",
-  "startBlock": 0,
+  "startBlock": 1251693,
   "account": "33xzQzUk75cAxt7i3hHb2XWwJNFqzcSULfoCRsAkiCG4jh5d",
   "dropInfos": {
     "RMATIC": {

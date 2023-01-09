@@ -5,11 +5,10 @@ import (
 	"strings"
 
 	"github.com/JFJun/go-substrate-crypto/ss58"
-	"github.com/pkg/errors"
-	"github.com/shopspring/decimal"
-
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/itering/scale.go/utiles"
+	"github.com/pkg/errors"
+	"github.com/shopspring/decimal"
 	"github.com/stafiprotocol/go-substrate-rpc-client/config"
 	"github.com/stafiprotocol/go-substrate-rpc-client/submodel"
 	"github.com/stafiprotocol/go-substrate-rpc-client/types"
@@ -36,11 +35,6 @@ func (l *Listener) processBlockEvents(currentBlock uint64) error {
 			addrStr, err := ss58.Encode(eventData.AccountId[:], ss58.StafiPrefix)
 			if err != nil {
 				return fmt.Errorf("address: %s encode to ss58 err: %s", hexutil.Encode(eventData.AccountId[:]), err)
-			}
-			if eventData.DestId != 1 {
-				l.log.Warn(fmt.Sprintf("user %s liquidity bond, but destId %d not support drop, will skip",
-					addrStr, eventData.DestId))
-				continue
 			}
 
 			dropInfo, exist := l.dropInfos[eventData.Symbol]
